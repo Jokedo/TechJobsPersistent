@@ -9,7 +9,7 @@ using TechJobsPersistent.Models;
 namespace TechJobsPersistent.ViewModels
 {
     public class AddJobViewModel
-    {
+    {   
         public string Name { get; set; }
 
         public int EmployerId { get; set; }
@@ -20,8 +20,23 @@ namespace TechJobsPersistent.ViewModels
 
 
 
-        public AddJobViewModel()
+        public AddJobViewModel(List<Employer> employers, List<Skill> jobSkills)
         {
+            Employers = new List<SelectListItem>();
+
+            foreach (var employer in employers)
+            {
+                Employers.Add(new SelectListItem
+                {
+                    Value = employer.Id.ToString(),
+                    Text = employer.Name
+                });
+            }
+
+            Skills = jobSkills;
         }
+
+        public AddJobViewModel() { }
     }
+
 }

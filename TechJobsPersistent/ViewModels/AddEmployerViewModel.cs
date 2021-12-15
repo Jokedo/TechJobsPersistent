@@ -10,9 +10,11 @@ namespace TechJobsPersistent.ViewModels
     public class AddEmployerViewModel
     {
         [Required(ErrorMessage = "Name is required")]
+        [StringLength(70, MinimumLength = 3)]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Location is required")]
+        [StringLength(70, MinimumLength = 3)]
         public string Location { get; set; }
 
         public AddEmployerViewModel(string name, string location)
@@ -21,7 +23,9 @@ namespace TechJobsPersistent.ViewModels
             Location = location;
         }
 
-        public AddEmployerViewModel() { }
+        public AddEmployerViewModel()
+        {
+        }
 
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
 

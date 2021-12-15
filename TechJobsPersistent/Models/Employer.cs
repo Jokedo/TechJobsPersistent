@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 namespace TechJobsPersistent.Models
+
 {
     public class Employer
     {

@@ -39,9 +39,10 @@ namespace TechJobsPersistent.Controllers
             return View(addJobViewModel);
         }
 
+        [HttpPost]
         public IActionResult ProcessAddJobForm(AddJobViewModel addJobViewModel, string[] selectedSkills)
         {
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 Job newJobForm = new Job
                 {
