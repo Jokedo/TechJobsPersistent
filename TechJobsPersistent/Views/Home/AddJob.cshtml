@@ -19,17 +19,17 @@
     <div class="form-group">
        <label for="selectedSkills">Skills</label>
        @if (Model.Skills == null)
-        {
-                <p>Create new skill</p>
+       {
+                <p>Please create a new skill </p>
        }
        else
-            {
+       {
                 @foreach (var skill in Model.Skills)
                 {
                     <input type ="checkbox" id="selectedSkills" name="selectedSkills" value="@skill.Id"/>
                     <label>@skill.Name</label>
-                 }
                 }
+       }
            <a asp-controller="Skill" asp-action="Add">Add Skills</a>
     </div>
 

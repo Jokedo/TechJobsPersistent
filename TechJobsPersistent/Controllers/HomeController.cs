@@ -33,9 +33,9 @@ namespace TechJobsPersistent.Controllers
         public IActionResult AddJob()
 
         {
-            
+            List<Employer> employers = context.Employers.ToList();
             List<Skill> skills = context.Skills.ToList();
-            AddJobViewModel addJobViewModel = new AddJobViewModel();
+            AddJobViewModel addJobViewModel = new AddJobViewModel(employers, skills);
             return View(addJobViewModel);
         }
 
@@ -58,9 +58,10 @@ namespace TechJobsPersistent.Controllers
                     {
                         JobId =  newJobForm.Id,
                         Job = newJobForm,
-                        SkillId = Int32.Parse(item),
-                        Skill = context.Skills.Find(Int32.Parse(item))
+                        SkillId = Int32.Parse(item)
+                        //Skill = context.Skills.Find(Int32.Parse(item))
                     };
+
                     context.JobSkills.Add(newJobSkill);
 
 
